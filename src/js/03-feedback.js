@@ -10,23 +10,25 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormInfo(e) {
   formData[e.target.name] = e.target.value;
-  LS.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData))
+  LS.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
 }
 
-if(LS.getItem(LOCAL_STORAGE_KEY)){
-  formData = JSON.parse(LS.getItem(LOCAL_STORAGE_KEY))
-  for(let key in formData){
-    form.elements[key].value = formData[key]
+if (LS.getItem(LOCAL_STORAGE_KEY)) {
+  formData = JSON.parse(LS.getItem(LOCAL_STORAGE_KEY));
+  for (let key in formData) {
+    form.elements[key].value = formData[key];
   }
 }
 
 function onFormSubmit(e) {
   e.preventDefault();
   const { email, message } = e.target.elements;
-    if (email.value === "" || message.value === "") {
-        alert("Please fill in all the fields!");
-        return;
-    }
-  e.currentTarget.reset();
-  localStorage.clear();
+  if (email.value === '' || message.value === '') {
+    alert('Please fill in all the fields!');
+    return;
+  }
+  console.log(formData);
+  e.target.reset();
+  LS.removeItem(LOCAL_STORAGE_KEY);
+  formData = {}
 }
