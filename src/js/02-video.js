@@ -11,21 +11,3 @@ function OnPlayer(data){
 }
 
 player.setCurrentTime(Number(STORAGE_KEY));
-
-// let timeStoped = localStorage.getItem('videoplayer-current-time');
-// if (timeStoped === null) {
-//   timeStoped = 0;
-// }
-
-
-// let timeStoped = localStorage.getItem('videoplayer-current-time');
-// if (timeStoped === null) {
-//   timeStoped = 0;
-// }
-// const onPlay = e => {
-//   localStorage.setItem('videoplayer-current-time', `${e.seconds}`);
-// };
-// player.on('timeupdate', throttle(onPlay, 1000));
-
-
-console.dir(player)
